@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <title>PREDICT THE HOUSE PRICE IN ALL OF VIETNAM'S PROVINCES</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{url_for('static' , filename = 'vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+<!-- 
+
+TemplateMo 570 Chain App Dev
+
+https://templatemo.com/tm-570-chain-app-dev
+
+-->
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+    <link href="{{url_for('static' , filename = 'assets/font/fontawesome-free-6.1.2-web/css/all.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static' , filename = 'assets/css/templatemo-chain-app-dev.css')}}" rel="stylesheet">
+    <link href="{{url_for('static' , filename = 'assets/css/owl.css')}}" rel="stylesheet">
+    <link href="{{url_for('static' , filename = 'assets/css/animated.css')}}" rel="stylesheet">
+
+
+  </head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ********** Show Predict page ************-->
+  <div class="main_choice_success" id="main_choice_success">
+    <div class="choice_success_box">
+        <div class="success_box_heading">Predict Success
+            <span class="success_box_wrapicon">
+                <i class="box-wrapicon-icon fa-solid fa-circle-check"></i>
+            </span>
+        </div>
+        <div class="choice_success_container">
+            <div class="success_container_main">
+              <p class="container_main_texting">_ Thank you so much. Because of choicing our website. </p>
+              <p class="container_main_texting">_ Result which is appear below. </p>
+                <!-- <p class="container_main_texting">_ Let continue to help and support us shop</p> -->
+                <!-- <p class="container_main_texting">_ Your support and patients customer is funny and happy with us company</p> -->
+                <!-- <p class="container_main_texting">_ I appreciate you in along time .Thank you so much . tym</p> -->
+                <div class="success_container_result">
+                  Price: <em> {{prediction_text}} </em>   tỷ VND
+                </div>
+            </div>
+            <!-- <div class="success_container_footer">
+                <p class="container_footer_texting">Need helps 
+                    <a href="#" class="container_footer_hotline">090909090990</a>
+                </p>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- Close button -->
+    <span class="btn-modal-close">&times;</span>
+</div>
+
+  <!-- ********** End Predict page ************-->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="index.html" class="logo">
+              <img class= "logo-intro" src="{{ url_for('static' , filename = 'images/logo.png')}}" alt="Hung Dev">
+              <span class = "name_logo" >Nhập Môn Khoa Học Dữ Liệu</span>
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+              <li class="scroll-to-section"><a href="#services">Projects</a></li>
+              <li class="scroll-to-section"><a href="#about">About</a></li>
+              <!-- <li class="scroll-to-section"><a href="#pricing">Pricing</a></li> -->
+              <li class="scroll-to-section"><a href="#newsletter">More</a></li>
+              <!-- <li><div class="gradient-button"><a id="modal_trigger" href="#modal"><i class="fa fa-sign-in-alt"></i> Sign In Now</a></div></li>  -->
+            </ul>        
+            <a class='menu-trigger'>
+                <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+  
+  <div id="modal" class="popupContainer" style="display:none; left: 48%;">
+    <div class="popupHeader">
+        <span class="header_title">Login</span>
+        <span class="modal_close"><i class="fa fa-times"></i></span>
+    </div>
+
+    <section class="popupBody">
+        <!-- Social Login -->
+        <div class="social_login">
+            <div class="">
+                <a href="#" class="social_box fb">
+                    <span class="icon"><i class="fab fa-facebook"></i></span>
+                    <span class="icon_title">Connect with Facebook</span>
+
+                </a>
+
+                <a href="#" class="social_box google">
+                    <span class="icon"><i class="fab fa-google-plus"></i></span>
+                    <span class="icon_title">Connect with Google</span>
+                </a>
+            </div>
+
+            <div class="centeredText">
+                <span>Or use your Email address</span>
+            </div>
+
+            <div class="action_btns">
+                <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
+                <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
+            </div>
+        </div>
+
+        <!-- Username & Password Login form -->
+        <div class="user_login">
+            <form>
+                <label>Email / Username</label>
+                <input type="text" />
+                <br />
+
+                <label>Password</label>
+                <input type="password" />
+                <br />
+
+                <div class="checkbox">
+                    <input id="remember" type="checkbox" />
+                    <label for="remember">Remember me on this computer</label>
+                </div>
+
+                <div class="action_btns">
+                    <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+                    <div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
+                </div>
+            </form>
+
+            <a href="#" class="forgot_password">Forgot password?</a>
+        </div>
+
+        <!-- Register Form -->
+        <div class="user_register">
+            <form>
+                <label>Full Name</label>
+                <input type="text" />
+                <br />
+
+                <label>Email Address</label>
+                <input type="email" />
+                <br />
+
+                <label>Password</label>
+                <input type="password" />
+                <br />
+
+                <div class="checkbox">
+                    <input id="send_updates" type="checkbox" />
+                    <label for="send_updates">Send me occasional email updates</label>
+                </div>
+
+                <div class="action_btns">
+                    <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+                    <div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+
+  <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-6 align-self-center">
+              <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <h2>This is a website application to help some your's projects</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                <img class = "img-bds" src="{{ url_for('static' , filename = 'assets/images/bds.jpg')}}" alt="real estate">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="services" class="services section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <div class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
+            <h4>Amazing <em>Predict &amp; View Ressult</em> right here</h4>
+            <img src="assets/images/heading-line-dec.png" alt="">
+            <!-- <p>If you need the greatest collection of HTML templates for your business, please visit <a rel="nofollow" href="https://www.toocss.com/" target="_blank">TooCSS</a> Blog. If you need to have a contact form PHP script, go to <a href="https://templatemo.com/contact" target="_parent">our contact page</a> for more information.</p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container" style="padding-bottom: 100px;">
+      <div class="row">
+        <form style="display: contents;" action="{{url_for('predict')}}" method="post">
+
+          <div class="col-lg-6">
+            <div class="service-item second-service" style="margin: 0 40px;">
+              <div class="icon"></div>
+              <h4>Information Outside</h4>
+              <!-- <form action="{{url_for('predict')}}" method="post"> -->
+                <div class="box_input">
+                  <p class="box_input_text"> Provinces </p>
+                  <input class = "box_input_info" name = "Provinces" type="text" list="list_provinces" placeholder="Input the your Province ..." required = "required">
+                  <datalist id="list_provinces">
+                      <option value= "An Giang" >
+                        <option value= "Bà Rịa - Vũng Tàu" >
+                        <option value="Vũng Tàu" >
+                        <option value= "Bắc Giang" >
+                        <option value= "Bắc Kạn" >
+                        <option value= "Bạc Liêu" >
+                        <option value= "Bắc Ninh" >
+                        <option value= "Bến Tre" >
+                        <option value= "Bình Định" >
+                        <option value= "Bình Dương" >
+                        <option value= "Bình Phước" >
+                        <option value= "Bình Thuận" >
+                        <option value= "Cà Mau" >
+                        <option value= "Cần Thơ" >
+                        <option value= "Cao Bằng" >
+                        <option value= "Đà Nẵng" >
+                        <option value= "Đắk Lắk" >
+                        <option value= "Đắk Nông" >
+                        <option value= "Điện Biên" >
+                        <option value= "Đồng Nai" >
+                        <option value= "Đồng Tháp" >
+                        <option value= "Gia Lai" >
+                        <option value= "Hà Giang" >
+                        <option value= "Hà Nam" >
+                        <option value= "Hà Nội" >
+                        <option value= "Hà Tĩnh" >
+                        <option value= "Hải Dương" >
+                        <option value= "Hải Phòng" >
+                        <option value= "Hậu Giang" >
+                        <option value= "Hòa Bình" >
+                        <option value= "Hưng Yên" >
+                        <option value= "Khánh Hòa" >
+                        <option value= "Kiên Giang" >
+                        <option value= "Kon Tum" >
+                        <option value= "Lai Châu" >
+                        <option value= "Lâm Đồng" >
+                        <option value= "Lạng Sơn" >
+                        <option value= "Lào Cai" >
+                        <option value= "Long An" >
+                        <option value= "Nam Định" >
+                        <option value= "Nghệ An" >
+                        <option value= "Ninh Bình" >
+                        <option value= "Ninh Thuận" >
+                        <option value= "Phú Thọ" >
+                        <option value= "Phú Yên" >
+                        <option value= "Quảng Bình" >
+                        <option value= "Quảng Nam" >
+                        <option value= "Quảng Ngãi" >
+                        <option value= "Quảng Ninh" >
+                        <option value= "Quảng Trị" >
+                        <option value= "Sóc Trăng" >
+                        <option value= "Sơn La" >
+                        <option value= "Tây Ninh" >
+                        <option value= "Thái Bình" >
+                        <option value= "Thái Nguyên" >
+                        <option value= "Thanh Hóa" >
+                        <option value= "Thừa Thiên–Huế" >
+                        <option value= "Tiền Giang" >
+                        <option value= "TP Hồ Chí Minh" >
+                        <option value= "Trà Vinh" >
+                        <option value= "Tuyên Quang" >
+                        <option value= "Vĩnh Long" >
+                        <option value= "Vĩnh Phúc" >
+                        <option value= "Yên Bái" >
+                        <option value="Hồ Chí Minh">
+                    </datalist>
+                </div>
+                <div class="box_input">
+                  <p class="box_input_text"> Quan/Huyen </p>
+                  <input class = "box_input_info" name = "Quan/Huyen" type="text"  placeholder="Input the your Quan/Huyen ..." required = "required">
+                </div>
+                <div class="box_input">
+                  <p class="box_input_text"> Utilities </p>
+                  <input class = "box_input_info" name = "Tien_ich" type="number" placeholder=" How to Advantage? ..." required = "required">
+                </div>
+                <div class="box_input">
+                  <p class="box_input_text"> Area </p>
+                  <input class = "box_input_info" name = "Areas" type="number" placeholder="Input Area ..." required = "required">
+                </div>
+              </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="service-item first-service" style="margin: 0 40px;">
+              <div class="icon"></div>
+              <h4>Information Inside</h4>
+                <div class="box_input">
+                  <p class="box_input_text"> Bedrooms </p>
+                  <input class = "box_input_info" name = "PN" type="number" placeholder="Input Number of Bed_rooms ..." required = "required">
+                </div>
+                <div class="box_input">
+                  <p class="box_input_text"> Restrooms </p>
+                  <input class = "box_input_info" name = "WC" type="number" placeholder="Input Number of Restrooms ..." required = "required">
+                </div>
+                <div class="box_input">
+                  <p class="box_input_text"> Floors </p>
+                  <input class = "box_input_info" name = "Floors" type="number" placeholder="Input Number of Floors ..." required = "required">
+                </div>
+                <div class="gradient-button box_input_predict">
+                  <button class = "btn-predict btn-predict-choice" type="submit"> Predict </button>
+                </div>
+              </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="about" class="about-us section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 align-self-center">
+          <div class="section-heading">
+            <h4>About <em>What We Do</em> &amp; <em>what Are Some References </em></h4>
+            <img src="assets/images/heading-line-dec.png" alt="">
+            <p>Some problems which we faced and fixed.</p>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="box-item">
+                <h4><a href="#">Scrapping Problems</a></h4>
+                <p>Resolve one week.  </p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="box-item">
+                <h4><a href="#">Understand &amp; Test Algorthmn</a></h4>
+                <p>Resolve five days.</p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="box-item">
+                <h4><a href="#">Fixing Issues About</a></h4>
+                <p>Clear and collect feature engineering.</p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="box-item">
+                <h4><a href="#">Completed</a></h4>
+                <p>After two weeks.</p>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eismod tempor idunte ut labore et dolore adipiscing  magna.</p> -->
+              <div class="gradient-button">
+                <a href="#">Start 14-Day Free Trial</a>
+              </div>
+              <span>*No Credit Card Required</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="right-image">
+            <img src="assets/images/about-right-dec.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <footer id="newsletter">
+    <div class="container newsletter_desgin">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <div class="section-heading">
+            <h4>Join our mailing list to receive the news &amp; latest trends</h4>
+          </div>
+        </div>
+        <div class="col-lg-6 offset-lg-3">
+          <form id="search" action="#" method="GET">
+            <div class="row">
+              <div class="col-lg-6 col-sm-6">
+                <fieldset>
+                  <input type="address" name="address" class="email" placeholder="Email Address..." autocomplete="on" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-6 col-sm-6">
+                <fieldset>
+                  <button type="submit" class="main-button">Subscribe Now <i class="fa fa-angle-right"></i></button>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="footer-widget">
+            <h4>Contact Us</h4>
+            <p>ABC , Pham Ngu Lao Way, District 1, HCM City</p>
+            <p><a href="#">0857192276</a></p>
+            <p><a href="#">hello_myfriend.web@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="footer-widget" >
+            <h4 >About Us</h4>
+            <ul style="display: contents;">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Purpose</a></li>
+              <li><a href="https://batdongsan.vn/ban-nha/">Real Estate</a></li>
+              <!-- <li><a href="#">Technologies</a></li>
+              <li><a href="#">Pricing</a></li> -->
+            </ul>
+            <!-- <ul style="margin-right: 12px ;">
+              <li><a href="#">About</a></li>
+              <li><a href="#">Testimonials</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Technologies</a></li>
+              <li><a href="#">Pricing</a></li>
+            </ul>
+            <ul style="margin-right: 12px ;">
+              <li><a href="#">About</a></li>
+              <li><a href="#">Testimonials</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Technologies</a></li>
+              <li><a href="#">Pricing</a></li>
+            </ul> -->
+            
+          </div>
+        </div>
+        <!-- <div class="col-lg-4">
+          <div class="footer-widget">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><a href="#">Free Apps</a></li>
+              <li><a href="#">App Engine</a></li>
+              <li><a href="#">Programming</a></li>
+              <li><a href="#">Development</a></li>
+              <li><a href="#">App News</a></li>
+            </ul>
+            <ul>
+              <li><a href="#">App Dev Team</a></li>
+              <li><a href="#">Digital Web</a></li>
+              <li><a href="#">Normal Apps</a></li>
+            </ul>
+          </div>
+        </div> -->
+        <div class="col-lg-4">
+          <div class="footer-widget">
+            <h4>About My Private</h4>
+            <div class="logo" style="display: flex;
+            justify-content: center;">
+              <img src="{{ url_for ('static' , filename = 'assets/images/logo1.png')}}" alt="">
+            </div>
+            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p> -->
+            <p>The Beginning Of Your Success</p>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="copyright-text">
+            <p>Copyright © 2023 Nhập Môn Khoa Học Dữ Liệu. 
+          <br>Design: <a href="https://templatemo.com/" target="_blank" title="css templates">Nhóm 4</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <script src="{{ url_for ('static' , filename = 'vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{ url_for ('static' , filename = 'vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ url_for ('static' , filename = 'assets/js/owl-carousel.js')}}"></script>
+  <script src="{{ url_for ('static' , filename = 'assets/js/animation.js')}}"></script>
+  <script src="{{ url_for ('static' , filename = 'assets/js/imagesloaded.js')}}"></script>
+  <script src="{{ url_for ('static' , filename = 'assets/js/popup.js')}}"></script>
+  <script src="{{ url_for ('static' , filename = 'assets/js/custom.js')}}"></script>
+
+
+  <!-- <script>
+        var CloseButton = document.querySelector('.btn-modal-close');
+            //  Btn Predict choices
+        const BtnChoicePredict = document.querySelector('.btn-predict-choice')
+        // console.log(BtnChoicePredict)
+        const MainChoiceSuccees = document.querySelector('.main_choice_success');
+        
+        function ShowChoicePredict () {
+            MainChoiceSuccees.style.display = 'block';
+        }
+        function HideChoiceSuccess () {
+            MainChoiceSuccees.style.display = 'none';
+        }
+
+
+        BtnChoicePredict.addEventListener('click' , ShowChoicePredict);
+
+
+        CloseButton.addEventListener('click' , HideChoiceSuccess);
+
+        MainChoiceSuccees.addEventListener('click' , HideChoiceSuccess);
+        const ChoiceSuccessBox = document.querySelector('.choice_success_box');
+        ChoiceSuccessBox.onclick = (e) => {
+            e.stopPropagation()
+        }
+  </script> -->
+</body>
+</html>

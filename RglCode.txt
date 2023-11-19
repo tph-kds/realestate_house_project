@@ -1,0 +1,24 @@
+
+------------------------------- QUI CHUẨN CODE NAME -------------------------------------------
+=============           Tiếng Anh hay Tiếng Việt KHÔNG DẤU đều được chấp nhận (KHUYÊN DÙNG TIẾNG ANH)         ================
+    - HÀM:
+        -+  Đặt tên hàm theo cú pháp: Độngtừ + Dấu "_" + Danh từ
+            -++ Có thể khác số lượng nhưng phải theo thứ tự nhé.
+        -+ Chữ cái đầu mỗi hàm đều phải VIẾT HOA.
+        -+ Phải đặt đúng ý nghĩa của mỗi hàm mình đặt ra.
+        -+ BẮT BUỘC viết comment phía trên "def ....():" để giải thích MỤC ĐÍCH của hàm.
+        
+        ** Khuyến khích để nhiều hàm cùng một Ô code để thuận tiện cho việc tìm hiểu và phát triển code.
+    
+    - BIẾN:
+        -+  Đặt tên tương tự như hàm theo cú pháp: Độngtừ + Dấu "_" + Danh từ
+            -++ Có thể khác số lượng nhưng phải theo thứ tự nhé.
+        -+ Khác với HÀM là Chữ cái đầu mỗi hàm KHÔNG VIẾT HOA. (==> Mỗi tên biến đều chữ thường).
+        -+ Phải đặt đúng ý nghĩa của mỗi hàm mình đặt ra.
+        
+    - KHUNG Ô CODE:
+        -+ Viết COMMENT giải thích MỤC ĐÍCH của việc viết những đoạn code bên dưới.
+        -+ Không để nhiều ô trống liền kề nhau.
+        -+ Luôn luôn viết MARKDOWN từng giai đoạn chúng ta Code. 
+            -++ Ví dụ: Chúng ta lọc data ==> MARK DOWN : ### LỌC DATA.
+            --+ Có thể giải thích thêm về điều đó hoặc cung cấp thêm thông tin cụ thể (nếu có)
